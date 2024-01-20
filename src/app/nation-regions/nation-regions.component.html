@@ -1,0 +1,31 @@
+<div class="bg-image" 
+     style="background-image: url('https://carasaven.com/wp-content/uploads/2021/09/CaraSaven-VintageWorldMap-Wallpaper.jpg');
+            height: 100vh">
+<button class="btn btn-primary" type="button" tabindex="-1" ><a class="nav-link" routerLink="/">Home</a>
+</button>
+
+<div class="container mt-4">
+<h2>Countries' Stats per Region</h2>
+<table class="table table-bordered table-striped table-hover" style="opacity: 0.85;">
+    <thead class="table-primary">
+        <tr>
+            <th>Continent Name</th>
+            <th>Region Name</th>
+            <th>Country Name</th>
+            <th>Year</th>
+            <th>Country's Population</th>
+            <th>Country's GDP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let region of regions">
+            <td>{{ region.continentName }}</td>
+            <td>{{ region.regionName }}</td>
+            <td>{{ region.name }}</td>
+            <td>{{ region.year }}</td>
+            <td>{{ region.population }}</td>
+            <td>{{ region.gdp }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

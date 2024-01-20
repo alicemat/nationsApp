@@ -1,0 +1,31 @@
+<div class="bg-image" 
+     style="background-image: url('https://carasaven.com/wp-content/uploads/2021/09/CaraSaven-VintageWorldMap-Wallpaper.jpg');
+            height: 100vh">
+<button class="btn btn-primary" type="button" tabindex="-1" ><a class="nav-link" routerLink="/">Home</a>
+</button>
+
+<div class="container mt-4">
+<h2>Countries' Maximum gdp per population ratio along the years</h2>
+<table class="table table-bordered table-striped table-hover" style="opacity: 0.85;">
+    <thead class="table-primary">
+        <tr>
+            <th>Country Name</th>
+            <th>Country Code</th>
+            <th>Year</th>
+            <th>Country's Population</th>
+            <th>Country's GDP</th>
+            <th>Max Ratio per Years</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stat of stats">
+            <td>{{ stat.name }}</td>
+            <td>{{ stat.country_code3 }}</td>
+            <td>{{ stat.year }}</td>
+            <td>{{ stat.population }}</td>
+            <td>{{ stat.gdp }}</td>
+            <td>{{ stat.ratio }}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
