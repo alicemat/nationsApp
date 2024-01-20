@@ -1,0 +1,67 @@
+<div class="bg-image" 
+     style="background-image: url('https://carasaven.com/wp-content/uploads/2021/09/CaraSaven-VintageWorldMap-Wallpaper.jpg');
+            height: 100vh">
+    <button class="btn btn-primary" type="button" tabindex="-1" ><a class="nav-link" routerLink="/">Home</a>
+    </button>
+
+    <div class="container mt-4">
+    <h2>Countries' Stats per Region </h2>
+    <p  class="text-dark bg-white">Select from the list to filter data</p>
+    <div class="form-group" >
+        <strong>Region</strong>
+        <select class="form-control"
+                name="regionNamefilter"
+                [(ngModel)]="regionNamefilter">
+                <option></option>
+                <option *ngFor="let region of getRegionsNames()" [value]="region">{{ region }}</option>     
+        </select>
+    </div>  
+
+    <div class="form-group" >
+        <strong> From Year</strong>
+        <select class="form-control"
+                name="yearMinFilter"
+                [(ngModel)]="yearsMinFilter">
+                <option></option>
+                <option *ngFor="let year of getYears()" [value]="year">{{ year }}</option>     
+        </select>
+    </div>
+    <div class="form-group" >
+        <strong> To Year</strong>
+        <select class="form-control"
+                name="yearMaxFilter"
+                [(ngModel)]="yearsMaxFilter">
+                <option></option>
+                <option *ngFor="let year of getYears()" [value]="year">{{ year }}</option>     
+        </select>
+    </div> 
+    <br/>
+
+    <table class="table table-bordered table-striped table-hover" style="opacity: 0.85;">
+        <thead class="table-primary">
+            <tr class="table-primary text-center">
+                <th>Region Name</th>
+                <th>Continent Name</th>
+                <th>Country Name</th>
+                <th>Year</th>
+                <th>Country's Population</th>
+                <th>Country's GDP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let region of regions | regionsFilter: regionNamefilter | yearFilter: {minYear: yearsMinFilter, maxYear: yearsMaxFilter} | paginate: { itemsPerPage: 7, currentPage: p }">
+                <td>{{ region.regionName }}</td>
+                <td>{{ region.continentName }}</td>
+                <td>{{ region.name }}</td>
+                <td>{{ region.year }}</td>
+                <td>{{ region.population | number:'1.0-0' }}</td>
+                <td>{{ region.gdp | number:'1.0-0' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<pagination-controls
+    (pageChange)="p = $event"
+></pagination-controls>

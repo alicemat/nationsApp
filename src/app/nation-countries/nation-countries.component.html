@@ -1,0 +1,32 @@
+<div class="bg-image" 
+     style="background-image: url('https://carasaven.com/wp-content/uploads/2021/09/CaraSaven-VintageWorldMap-Wallpaper.jpg') ;
+     background-size: cover;
+            height: 100vh">
+    <button class="btn btn-primary" type="button" tabindex="-1" ><a class="nav-link" routerLink="/">Home</a></button>
+    <div class="container mt-4">
+        <h2>List of Countries</h2>
+        <p class="text-dark bg-white">Click on a country to display the spoken languages of the selected country</p>
+        <table class="table table-bordered table-hover table-striped" style="opacity: 0.85;">
+
+            <thead>
+                <tr class="table-primary text-center">
+                    <th>Name</th>
+                    <th>Area</th>
+                    <th>Country Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries | paginate: { itemsPerPage: 12, currentPage: p }">
+                    <td><a [routerLink]="['/countries', country.country_id]">{{ country.countryName }}</a></td>
+                    <td>{{ country.area | number:'1.0-0' }}</td>
+                    <td>{{ country.country_code2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+<pagination-controls
+    (pageChange)="p = $event"
+></pagination-controls>
