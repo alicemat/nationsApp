@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class NationsHomeApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(NationsHomeApplication.class, args);
+		System.out.println("Test github");
 	}
 
 }
