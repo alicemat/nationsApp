@@ -11,6 +11,7 @@ public class NationsHomeApplication {
 		SpringApplication.run(NationsHomeApplication.class, args);
 		System.out.println("Test github1");
 		System.out.println("Test branch--1");
+		System.out.println("Test2");
 
 	}
 
